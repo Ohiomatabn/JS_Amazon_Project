@@ -15,7 +15,7 @@ function updateCheckoutItem(){
   return items
 }
 
-document.querySelector('.js-return-to-home-link').innerHTML = updateCheckoutItem();
+document.querySelector('.js-return-to-home-link').innerHTML += `${updateCheckoutItem()} items`;
 
 renderOderSummary();
 renderPaymentSummary();
