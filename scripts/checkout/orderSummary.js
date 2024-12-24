@@ -38,14 +38,14 @@ export function renderOderSummary(){
           ${matchingProduct.name}
         </div>
         <div class="product-price">${ formatCurrency (matchingProduct.priceCents)}</div>
-        <div class="product-quantity">
+        <div class="product-quantity js-product-quantity-${matchingProduct.id}">
           <span> Quantity: <span class="quantity-label">${(cartItem.quantity).toFixed(2)}</span> </span>
           <span data-product-id = ${matchingProduct.id} class="update-quantity-link link-primary js-update-quantity-link">
             Update
           </span>
           <input class="quantity-input hide js-qunatity-input" data-product-id = "${matchingProduct.id}">
           <span class="save-quantity-link link-primary js-save-link hide" data-product-id = "${matchingProduct.id}">Save</span>
-          <span class="delete-quantity-link link-primary js-delete-link" data-product-id = "${matchingProduct.id}">
+          <span class="delete-quantity-link link-primary js-delete-link js-delete-link${matchingProduct.id}" data-product-id = "${matchingProduct.id}">
             Delete
           </span>
         </div>
