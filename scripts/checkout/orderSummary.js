@@ -37,7 +37,7 @@ export function renderOderSummary(){
         <div class="product-name">
           ${matchingProduct.name}
         </div>
-        <div class="product-price">${ formatCurrency (matchingProduct.priceCents)}</div>
+        <div class="product-price">${matchingProduct.getPrice()}</div>
         <div class="product-quantity js-product-quantity-${matchingProduct.id}">
           <span> Quantity: <span class="quantity-label">${(cartItem.quantity).toFixed(2)}</span> </span>
           <span data-product-id = ${matchingProduct.id} class="update-quantity-link link-primary js-update-quantity-link">
