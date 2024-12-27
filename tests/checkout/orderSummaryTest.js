@@ -1,5 +1,12 @@
 import {renderOderSummary} from '../../scripts/checkout/orderSummary.js';
 import { loadFromStorage, cart } from '../../data/cart.js';
+import { loadProduct } from '../../data/products.js';
+
+beforeAll((done) =>{
+  loadProduct(() =>{
+    done();
+  });
+});
 
 describe('test suite: renderOrderSummary', () =>{
   const productId1 = 'e43638ce-6aa0-4b85-b27f-e1d07eb678c6';
