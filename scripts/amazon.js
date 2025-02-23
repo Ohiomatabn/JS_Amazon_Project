@@ -1,5 +1,5 @@
 import { cart, addToCart } from "../data/cart.js";
-import { products, loadProduct } from "../data/products.js";
+import { product, loadProduct } from "../data/products.js";
 import { formatCurrency } from "./utils/money.js";
 
 loadProduct(renderProductGrid);
@@ -7,7 +7,7 @@ loadProduct(renderProductGrid);
 function renderProductGrid(){
 let productsHTML = '';
 
-products.forEach((product) =>{
+product.forEach((product) =>{
   productsHTML += `
     <div class="product-container">
     <div class="product-image-container">
@@ -50,7 +50,7 @@ products.forEach((product) =>{
 
     <div class="product-spacer"></div>
 
-    <div class="added-to-cart">
+    <div class="added-to-cart js-added-to-cart" data-product-id = ${product.id}>
       <img src="images/icons/checkmark.png" />
       Added
     </div>
@@ -75,6 +75,17 @@ document.querySelectorAll('.js-add-to-cart').forEach((button) => {
   button.addEventListener('click', () =>{
     const productId = button.dataset.productId;
 
+    product.forEach((product) =>{
+      if(product.id === productId){
+        document.querySelectorAll('.js-added-to-cart').forEach((addedToCart) =>{
+          const addedCartId = addedToCart.dataset.productId;
+          if(productId === addedCartId){
+            addedToCart.setAttribute('style', 'opacity: 1');
+          }
+        });
+      }
+    })
+    
     addToCart(productId);
     updateCartQuantity();
   });
