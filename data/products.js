@@ -3,7 +3,7 @@ import { formatCurrency } from "../scripts/utils/money.js";
 export function getProduct(productId){
   let matchingProduct;
 
-  products.forEach((product) =>{
+  product.forEach((product) =>{
     if (product.id === productId){
       matchingProduct = product;
     }
@@ -64,7 +64,7 @@ console.log(date);
 console.log(date.toLocaleTimeString());
 */
 
-console.log(this);
+//console.log(this);
 
 /*
 const object2 = {
@@ -130,7 +130,7 @@ export function loadProduct(fun){
     console.log('Unexpected error. Please try again later');
   });
 
-  xhr.open('GET', 'https://supersimplebackend.dev/product');
+  xhr.open('GET', 'https://supersimplebackend.dev/products');
 
   xhr.send();
 }
